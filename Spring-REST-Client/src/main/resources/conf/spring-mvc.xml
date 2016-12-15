@@ -19,24 +19,18 @@
 	
 
 <context:component-scan base-package="controller" />
-<!-- 静态资源访问（不拦截此目录下的东西的访问） -->  
-<mvc:resources location="/js/"  mapping="/js/**" />  
-<mvc:resources location="/css/"  mapping="/css/**" />  
-
 <!-- 处理请求时返回json字符串的中文乱码问题 -->
     <mvc:annotation-driven>
         <mvc:message-converters>
-            <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-			<property name="supportedMediaTypes">
-				<list>
-					<value>text/html;charset=UTF-8</value>
-					<value>application/json; charset=UTF-8</value>
-				</list>
-			</property>
-	</bean>
+            <ref bean="jsonConverter" />
         </mvc:message-converters>
     </mvc:annotation-driven>
-    
-    
-    
+<!-- 静态资源访问（不拦截此目录下的东西的访问） -->  
+<mvc:resources location="/js/"  mapping="/js/**" />  
+<mvc:resources location="/css/"  mapping="/css/**" />  
+<!-- 页面转向解析 -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/WEB-INF/content/" />
+	<property name="suffix" value=".jsp" />
+</bean>	
 </beans>

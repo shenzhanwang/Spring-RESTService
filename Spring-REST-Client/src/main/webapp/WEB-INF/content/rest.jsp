@@ -105,7 +105,7 @@
 				alert("age不能空");
 				return false;
 			}
-			var json={"name":$("#name").val(),"age":$("#age").val()};
+		  var json={"name":$("#name").val(),"age":$("#age").val()};
 		   $.ajax({  
             url : "actors",  
             type : "POST",  
@@ -115,8 +115,7 @@
             success : function(result) {  
                 alert("添加成功"+JSON.stringify(result));  
             }  
-     });  
-		  
+			});
 		});
 		
 		$.get("actors/1",function(data){
@@ -142,7 +141,7 @@
 		        dataType: 'json',  
             	contentType:'application/json;charset=UTF-8', //contentType很重要     
 		        success: function(data) {
-			        alert("更新成功，为"+JSON.stringify(data));
+			        alert("更新成功");
 			    }      
 		      });
 			});
