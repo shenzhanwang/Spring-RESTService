@@ -34,8 +34,9 @@
     3.Client端入口：
     
       http://localhost:8080/Spring-REST-Client/rest
+      
      
     效果图：
     
-    
+      ![alt text](https://github.com/shenzhanwang/Spring-RESTService/blob/master/1.jpg)
     
