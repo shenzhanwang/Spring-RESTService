@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import po.Actor;
+import po.MSG;
 import service.ActorService;
 
 @Controller
@@ -25,18 +26,6 @@ public class ActorController {
 		List<Actor> list=actorservice.getActors();
 		return  list;
 	}
-/*	
-	@RequestMapping(value="/actors/{id}",method = RequestMethod.PUT)
-	@ResponseBody
-	public Actor updateactor(@PathVariable("id") int id,@RequestParam("name2") String name,@RequestParam("age2") int age){
-		Actor a=new Actor();
-		a.setId(id);
-		a.setName(name);
-		a.setAge(age);
-		actorservice.UpdateActor(a);
-		return a;
-	}
-*/
 	
 	@RequestMapping(value="/actors/{id}",method = RequestMethod.PUT,consumes="application/json")
 	@ResponseBody
@@ -62,9 +51,11 @@ public class ActorController {
 	
 	@RequestMapping(value="/actors/{id}",method = RequestMethod.DELETE)
 	@ResponseBody
-	public String delete(@PathVariable("id") int id){
+	public MSG delete(@PathVariable("id") int id){
 		actorservice.Delete(id);
-		return "";
+		MSG msg=new MSG();
+		msg.setStatus("200");
+		return msg;
 	}
 	
 	@RequestMapping(value="rest",method = RequestMethod.GET)

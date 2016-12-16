@@ -119,9 +119,8 @@
 		});
 		
 		$.get("actors/1",function(data){
-		  		var a=JSON.parse(data);
-		  		$("#name2").val(a.name);
-		  		$("#age2").val(a.age);
+		  		$("#name2").val(data.name);
+		  		$("#age2").val(data.age);
 		});
 		
 		$("#update").click(function(){

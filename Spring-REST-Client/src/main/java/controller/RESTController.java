@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import po.Actor;
+import po.MSG;
 
 import com.alibaba.fastjson.JSON;
 
@@ -49,9 +50,11 @@ public class RESTController {
 	
 	@RequestMapping(value="/actors/{id}",method = RequestMethod.DELETE)
 	@ResponseBody
-	public String delete(@PathVariable("id")String id){
+	public MSG delete(@PathVariable("id")String id){
 		rest.delete("http://localhost:8080/Spring-REST-Server/actors/{id}", id);
-		return "";
+		MSG msg=new MSG();
+		msg.setStatus("ok");
+		return msg;
 	}
 	
 	@RequestMapping(value="/actors",method = RequestMethod.POST,consumes="application/json")
@@ -66,13 +69,15 @@ public class RESTController {
 	
 	@RequestMapping(value="/actors/{id}",method = RequestMethod.PUT)
 	@ResponseBody
-	public String updateactor(@PathVariable("id") int id,@RequestBody Actor actor){
+	public MSG updateactor(@PathVariable("id") int id,@RequestBody Actor actor){
 		actor.setId(id);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<Actor> entity = new HttpEntity<Actor>(actor,headers);
 		rest.put("http://localhost:8080/Spring-REST-Server/actors/1", entity);
-		return "";
+		MSG msg=new MSG();
+		msg.setStatus("ok");
+		return msg;
 	}
 	
 }
