@@ -10,7 +10,7 @@
     
     3.前后台通过json通信，对于POST和PUT请求，ajax需要提交json字符串作为数据，后台用@RequestBody接收json转为java对象；
     
-    4.已配置Jackson2json作为消息转换器，controller返回的对象自动转json字符串到前端；
+    4.已配置阿里巴巴的Fastjson工具作为消息转换器，controller返回的对象自动转json字符串到前端；
     
     5.Server端使用SSM框架，需要用mysql建立表格actor持久化数据：
     
