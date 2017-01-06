@@ -40,9 +40,10 @@ Server端：
             dataType: 'json',  
             contentType:'application/json;charset=UTF-8', //contentType很重要     
             success : function(result) { });
- 如果是GET请求，直接$.get(...)即可;
-    
-    4.Client端入口：
+  
+如果是GET请求，直接$.get(...)即可;
+
+4.Client端入口：
     
       http://localhost:8080/Spring-REST-Client/rest
       
