@@ -67,6 +67,15 @@
   				<code>http://localhost:8080/Spring-REST-Server/actors/3</code><br><br>
   				<button type="button" id="delete" class="btn btn-danger">删除单个</button>
   			</div>
+  			<div class="well">
+  				<span class="label label-success">file upload</span><br><br>
+  				<code>http://localhost:8080/Spring-REST-Server/actors/upload</code><br><br>
+  				<form id="myform"  method= "post" enctype ="multipart/form-data">
+  				<input type="file" name="uploadfile" class="form-control" id="fileupload"><br>
+  				<button type="button" id="file" class="btn btn-success">文件上传</button>
+  				</form>
+  				
+  			</div>
   		</div>
   	</div>
   </div>
@@ -74,6 +83,29 @@
 </html>
 <script>
 	$(document).ready(function(){
+	
+	 	
+		$("#file").click(function(){
+		var formData = new FormData(document.getElementById('myform')); 
+	 	 
+	 	formData.append("bz", "this is bz");
+			$.ajax({  
+	          url: 'actors/upload' ,  
+	          type: 'POST',  
+	          data: formData,  
+	          async: false,  
+	          cache: false,  
+	          contentType: false,  
+	          processData: false,  
+	          success: function (returndata) {  
+	              alert(returndata.status);  
+	          },  
+	          error: function (returndata) {  
+	              alert(returndata);  
+	          }  
+     });  
+		});
+	
 		$("#getall").click(function(){
 		  	$.get("actors",function(data){
 		  		alert("获取结果 "+ JSON.stringify(data));

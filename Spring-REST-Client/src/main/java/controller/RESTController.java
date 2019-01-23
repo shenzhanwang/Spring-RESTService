@@ -36,22 +36,22 @@ public class RESTController {
 	
 	@RequestMapping(value="/actors/1",method = RequestMethod.GET)
 	@ResponseBody
-	public Actor getactor(){
-		Actor a=rest.getForObject("http://localhost:8080/Spring-REST-Server/actors/1", Actor.class);
-		return a;
+	public MSG getactor(){
+		MSG a=rest.getForObject("http://localhost:8081/Spring-REST-Server/actors/1", MSG.class);
+		return new MSG("200",a.getData());
 	}
 	
 	@RequestMapping(value="/actors",method = RequestMethod.GET)
 	@ResponseBody
-	public List<Actor> getactors(){
-		List<Actor> a=rest.getForObject("http://localhost:8080/Spring-REST-Server/actors", List.class);
-		return a;
+	public MSG getactors(){
+		MSG a=rest.getForObject("http://localhost:8081/Spring-REST-Server/actors", MSG.class);
+		return new MSG("200",a.getData());
 	}
 	
 	@RequestMapping(value="/actors/{id}",method = RequestMethod.DELETE)
 	@ResponseBody
 	public MSG delete(@PathVariable("id")String id){
-		rest.delete("http://localhost:8080/Spring-REST-Server/actors/{id}", id);
+		rest.delete("http://localhost:8081/Spring-REST-Server/actors/{id}", id);
 		MSG msg=new MSG();
 		msg.setStatus("ok");
 		return msg;
@@ -63,7 +63,7 @@ public class RESTController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<Actor> entity = new HttpEntity<Actor>(actor,headers);
-		Actor a=rest.postForObject("http://localhost:8080/Spring-REST-Server/actors",entity,Actor.class);
+		Actor a=rest.postForObject("http://localhost:8081/Spring-REST-Server/actors",entity,Actor.class);
 		return a;
 	}
 	
@@ -74,7 +74,7 @@ public class RESTController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<Actor> entity = new HttpEntity<Actor>(actor,headers);
-		rest.put("http://localhost:8080/Spring-REST-Server/actors/1", entity);
+		rest.put("http://localhost:8081/Spring-REST-Server/actors/1", entity);
 		MSG msg=new MSG();
 		msg.setStatus("ok");
 		return msg;

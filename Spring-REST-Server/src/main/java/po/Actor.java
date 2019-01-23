@@ -1,7 +1,8 @@
 package po;
 
+import java.io.Serializable;
 
-public class Actor {
+public class Actor implements Serializable{
 	private int id;
 	private String name;
 	private int age;

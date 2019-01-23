@@ -1,5 +1,5 @@
 # Spring-REST
-    如果说Web Service是一种特殊的RPC，那么REST Service又是一种特殊的Web Service，目前已成为分布式通信的重要手段。本项目基于Spring框架，完成REST风格的接口的发布(Server)与接收(Client)。特性如下：
+    如果说Web Service是一种特殊的RPC，那么REST Service又是一种特殊的Web Service，目前已成为分布式通信的重要手段。本项目基于Spring框架，完成REST（表现层状态转移）风格的接口的发布(Server)与接收(Client)。特性如下：
     
     
 Server端：
@@ -49,8 +49,9 @@ Server端：
       http://localhost:8080/Spring-REST-Client/rest
       
     效果图：
-      ![alt text](https://github.com/shenzhanwang/Spring-RESTService/blob/master/1.jpg)
- ### 附录：个人作品索引目录（持续更新）
+     ![输入图片说明](http://git.oschina.net/uploads/images/2017/0209/143942_9a9acde4_1110335.jpeg "在这里输入图片标题")
+
+### 附录：个人作品索引目录（持续更新）
 
 #### 基础篇:职业化，从做好OA系统开始
 1. [SpringMVC,Mybatis,Spring三大框架的整合实现增删改查](https://gitee.com/shenzhanwang/SSM)
@@ -99,4 +100,4 @@ Server端：
 
 ### 网店入口
 [我的网店](https://www.fageka.com/Store/Index/shop/id/1zxrETbHcz)
-      
+   
